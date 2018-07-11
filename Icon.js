@@ -7,7 +7,7 @@ import { prefixTypes } from "./config";
 
 const DEFAULT_ICON = "question-circle";
 
-const Icon = ( { name, size, color, type, containerStyle, iconStyle, onPress } ) => {
+const Icon = ( { name, size, color, type, containerStyle, iconStyle, onPress, touchableOpacityProps } ) => {
 
   const prefix = prefixTypes[type];
   let icon = fontawesome.findIconDefinition( { prefix, iconName: name } );
@@ -43,6 +43,7 @@ const Icon = ( { name, size, color, type, containerStyle, iconStyle, onPress } )
         onPress={onPress}
         disabled={!onPress}
         style={containerStyle}
+        {...touchableOpacityProps}
       >
         {iconContent}
       </TouchableOpacity>
